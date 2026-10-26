@@ -1,0 +1,421 @@
+/* =====================================
+   MISSAO AURA 2089
+   Interface de exploracao espacial
+===================================== */
+
+:root {
+    --fundo: #070b18;
+    --painel: #10182c;
+    --painel-claro: #151f38;
+    --ciano: #78f5ff;
+    --roxo: #a78bfa;
+    --texto: #edf4ff;
+    --texto-suave: #aab8d3;
+    --borda: #293c5e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 38px 18px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--texto);
+    line-height: 1.6;
+
+    background-color: var(--fundo);
+
+background-image:
+    linear-gradient(
+        rgba(5, 10, 28, 0.70),
+        rgba(5, 10, 28, 0.82)
+    ),
+    url("imagens/fundo-espacial.jpg");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+/* PAINEL PRINCIPAL */
+
+.container {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 38px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(18, 29, 53, 0.98),
+        rgba(9, 15, 31, 0.98)
+    );
+
+    border: 1px solid #405780;
+    border-radius: 5px;
+
+    outline: 1px solid rgba(120, 245, 255, 0.16);
+    outline-offset: 7px;
+
+    box-shadow:
+        0 0 35px rgba(71, 113, 255, 0.12),
+        inset 0 0 35px rgba(87, 119, 200, 0.035);
+}
+
+/* DETALHES GEOMETRICOS DOS CANTOS */
+
+.container::before,
+.container::after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    pointer-events: none;
+}
+
+.container::before {
+    top: -1px;
+    left: -1px;
+    border-top: 3px solid var(--ciano);
+    border-left: 3px solid var(--ciano);
+}
+
+.container::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: 3px solid var(--roxo);
+    border-bottom: 3px solid var(--roxo);
+}
+
+/* TITULOS */
+
+h1 {
+    position: relative;
+    margin: 0;
+    color: var(--ciano);
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    text-shadow: 0 0 22px rgba(120, 245, 255, 0.25);
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    margin: 18px auto;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--ciano),
+        var(--roxo),
+        transparent
+    );
+}
+
+.container > p:first-of-type {
+    color: var(--texto-suave);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* ROTULOS E CAMPOS */
+
+form > label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: var(--ciano);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 15px;
+
+    color: var(--texto);
+    background: #080f21;
+
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus-visible {
+    outline: none;
+    border-color: var(--ciano);
+    box-shadow: 0 0 0 3px rgba(120, 245, 255, 0.12);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+/* TITULO DO QUESTIONARIO */
+
+h2 {
+    margin-top: 36px;
+    padding-bottom: 12px;
+
+    color: var(--roxo);
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+/* PAINEIS DAS PERGUNTAS */
+
+fieldset {
+    position: relative;
+    margin: 24px 0;
+    padding: 22px 18px 15px;
+
+    background: linear-gradient(
+        120deg,
+        rgba(21, 31, 56, 0.85),
+        rgba(10, 17, 34, 0.9)
+    );
+
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+
+    transition: border-color 0.25s, background 0.25s;
+}
+
+/* PEQUENO DETALHE TECNICO NO CANTO */
+
+fieldset::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+
+    width: 22px;
+    height: 22px;
+
+    border-top: 2px solid var(--roxo);
+    border-right: 2px solid var(--roxo);
+
+    pointer-events: none;
+}
+
+fieldset:hover {
+    border-color: #56719e;
+    background-color: var(--painel-claro);
+}
+
+legend {
+    max-width: 95%;
+    padding: 0 10px;
+    color: var(--ciano);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* ALTERNATIVAS */
+
+fieldset label {
+    display: block;
+    margin: 5px 0;
+    padding: 11px 12px;
+
+    color: #d4def2;
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    cursor: pointer;
+    line-height: 1.5;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        color 0.2s;
+}
+
+fieldset label:hover {
+    color: white;
+    background: rgba(120, 245, 255, 0.06);
+    border-color: rgba(120, 245, 255, 0.25);
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--ciano);
+    cursor: pointer;
+}
+
+fieldset label:has(input:checked) {
+    color: var(--ciano);
+    background: rgba(120, 245, 255, 0.08);
+    border-color: rgba(120, 245, 255, 0.45);
+}
+
+/* BOTOES */
+
+button {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 28px;
+    padding: 14px 18px;
+
+    color: #07111e;
+    background: linear-gradient(100deg, var(--ciano), #b8b1ff);
+
+    border: 1px solid #d0fbff;
+    border-radius: 4px;
+
+    font: inherit;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 18px rgba(120, 245, 255, 0.12);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        filter 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 0 25px rgba(120, 245, 255, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* TELA DE RESULTADO */
+
+#resultado {
+    position: relative;
+    margin-top: 35px;
+    padding: 24px;
+
+    background: linear-gradient(
+        145deg,
+        #14213b,
+        #0a1225
+    );
+
+    border: 1px solid var(--ciano);
+    border-radius: 4px;
+
+    box-shadow: 0 0 22px rgba(120, 245, 255, 0.08);
+}
+
+#resultado h2 {
+    color: var(--ciano);
+}
+
+#resultado img {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 24px auto;
+
+    border: 1px solid #617ca8;
+    border-radius: 4px;
+
+    box-shadow: 0 0 25px rgba(120, 245, 255, 0.1);
+}
+
+/* IDENTIFICACAO DA INTERFACE */
+
+.codigo {
+    margin-top: 35px;
+    padding-top: 15px;
+
+    color: #7285b4;
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 5px;
+
+    border-top: 1px solid var(--borda);
+}
+
+/* ACESSIBILIDADE: REDUZIR ANIMACOES */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+/* VERSAO PARA CELULARES */
+
+@media (max-width: 500px) {
+    body {
+        padding: 18px 12px;
+    }
+
+    .container {
+        padding: 25px 16px;
+        outline-offset: 3px;
+    }
+
+    h1 {
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-size: 1.15rem;
+    }
+
+    fieldset {
+        padding: 19px 10px 12px;
+        margin: 20px 0;
+    }
+
+    legend {
+        font-size: 0.95rem;
+    }
+
+    fieldset label {
+        padding: 11px 8px;
+        font-size: 0.94rem;
+    }
+
+    #resultado {
+        padding: 16px;
+    }
+
+    button {
+        letter-spacing: 0.5px;
+    }
+}

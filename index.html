@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão Aura</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Missão Aura</h1>
+        <p>Descubra seu perfil para a missão espacial de 2089!</p>
+
+        <form id="formulario">
+            <label for="nome">Qual é o seu nome?</label>
+            <input type="text" id="nome" required>
+
+            <label for="nascimento">Qual é sua data de nascimento?</label>
+            <input type="date" id="nascimento" required>
+
+            <h2>Questionário da missão</h2>
+
+            <fieldset>
+                <legend>1. O que você mais gosta de fazer?</legend>
+                <label><input type="radio" name="p1" value="1" required> Construir e consertar coisas</label>
+                <label><input type="radio" name="p1" value="2"> Pesquisar e descobrir coisas</label>
+                <label><input type="radio" name="p1" value="3"> Explorar lugares desconhecidos</label>
+                <label><input type="radio" name="p1" value="4"> Planejar e organizar equipes</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Você encontra um objeto alienígena. O que faz?</legend>
+                <label><input type="radio" name="p2" value="1" required> Tento descobrir como funciona</label>
+                <label><input type="radio" name="p2" value="2"> Analiso sua composição</label>
+                <label><input type="radio" name="p2" value="3"> Investigo sua origem</label>
+                <label><input type="radio" name="p2" value="4"> Organizo uma análise segura</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Qual ferramenta você escolheria?</legend>
+                <label><input type="radio" name="p3" value="1" required> Kit de reparos</label>
+                <label><input type="radio" name="p3" value="2"> Microscópio</label>
+                <label><input type="radio" name="p3" value="3"> Mapa de exploração</label>
+                <label><input type="radio" name="p3" value="4"> Computador de planejamento</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Qual seria seu objetivo na missão?</legend>
+                <label><input type="radio" name="p4" value="1" required> Criar soluções</label>
+                <label><input type="radio" name="p4" value="2"> Fazer descobertas científicas</label>
+                <label><input type="radio" name="p4" value="3"> Conhecer novos mundos</label>
+                <label><input type="radio" name="p4" value="4"> Garantir o sucesso da equipe</label>
+            </fieldset>
+
+            <button type="submit">Descobrir meu perfil</button>
+        </form>
+
+        <section id="resultado" hidden>
+            <h2>Seu resultado</h2>
+            <div id="dadosResultado"></div>
+            <button type="button" id="refazer">-refaça-</button>
+        </section>
+
+        <p class="codigo">aura67</p>
+    </main>
+</body>
+</html>
